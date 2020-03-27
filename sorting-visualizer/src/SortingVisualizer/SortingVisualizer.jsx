@@ -5,9 +5,6 @@ import {getQuickSortAnimations} from '../SortingAlgorithms.js';
 import {getHeapSortAnimations} from '../SortingAlgorithms.js';
 import {getBubbleSortAnimations} from '../SortingAlgorithms.js';
 
-
-
-
 // Change this value for the speed of the animations.
 const ANIMATION_SPEED_MS = 1;
 

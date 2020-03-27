@@ -3,7 +3,7 @@ import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../SortingAlgorithms.js';
 import {getQuickSortAnimations} from '../SortingAlgorithms.js';
 import {getHeapSortAnimations} from '../SortingAlgorithms.js';
-
+import {getBubbleSortAnimations} from '../SortingAlgorithms.js';
 
 
 // Change this value for the speed of the animations.
@@ -125,6 +125,29 @@ heapSort() {
 
 bubbleSort() {
     // We leave it as an exercise to the viewer of this code to implement this method.
+    const animations = getBubbleSortAnimations(this.state.array);
+    console.log(animations);
+    for (let i = 0; i < animations.length; i++) {
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const [barOneIdx, barTwoIdx, flag1, flag2] = animations[i];
+        const go = flag1 === true;
+        if (!go) {
+            const [barOneIdx, barTwoIdx, flag1, flag2] = animations[i];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            const color = (flag2 === true ? PRIMARY_COLOR : SECONDARY_COLOR);
+            setTimeout(() => {
+                barOneStyle.backgroundColor = color;
+                barTwoStyle.backgroundColor = color;
+                }, i * ANIMATION_SPEED_MS);
+        } else {
+            setTimeout(() => {
+            const [barOneIdx, newHeight, flag] = animations[i];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            barOneStyle.height = `${newHeight}px`;
+            }, i * ANIMATION_SPEED_MS);
+        }
+    }
 }
 
 // NOTE: This method will only work if your sorting algorithms actually return
