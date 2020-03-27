@@ -10,7 +10,7 @@ import {getBubbleSortAnimations} from '../SortingAlgorithms.js';
 const ANIMATION_SPEED_MS = 1;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 160;
+const NUMBER_OF_ARRAY_BARS = Math.floor((window.screen.width - 360) / 6);
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'teal';
@@ -121,6 +121,7 @@ heapSort() {
             }, i * ANIMATION_SPEED_MS);
         }
     }
+    alert(window.screen.width);
 }
 
 bubbleSort() {
@@ -148,6 +149,7 @@ bubbleSort() {
             }, i * ANIMATION_SPEED_MS);
         }
     }
+
 }
 
 // NOTE: This method will only work if your sorting algorithms actually return
@@ -174,6 +176,16 @@ render() {
 
     return (
     <div className="array-container">
+       <div>
+            <ul>
+                <li><a class="active" href="#" onClick={() => this.resetArray()}>Generate New Array</a></li>
+                <li><a href="#" onClick={() => this.mergeSort()}>Merge Sort</a></li>
+                <li><a href="#" onClick={() => this.quickSort()}>Quick Sort</a></li>
+                <li><a href="#" onClick={() => this.heapSort()}>Heap Sort</a></li>
+                <li><a href="#" onClick={() => this.bubbleSort()}>Bubble Sort</a></li>
+            </ul>
+       </div>
+       
         {array.map((value, idx) => (
         <div
             className="array-bar"
@@ -183,12 +195,12 @@ render() {
             height: `${value}px`,
             }}></div>
         ))}
-        <button onClick={() => this.resetArray()}>Generate New Array</button>
+        {/* <button onClick={() => this.resetArray()}>Generate New Array</button>
         <button onClick={() => this.mergeSort()}>Merge Sort</button>
         <button onClick={() => this.quickSort()}>Quick Sort</button>
         <button onClick={() => this.heapSort()}>Heap Sort</button>
         <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-        {/* <button onClick={() => this.test()}>
+        <button onClick={() => this.test()}>
         Test Sorting Algorithms (BROKEN)
         </button> */}
     </div>
