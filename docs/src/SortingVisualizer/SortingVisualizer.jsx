@@ -33,7 +33,7 @@ componentDidMount() {
 
 resetArray() {
     const array = [];
-    // const array = [40, 100, 30, 50, 10];
+    // const array = [50, 10, 40, 20, 80, 90];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
         array.push(randomIntFromInterval(5, 730));
     }

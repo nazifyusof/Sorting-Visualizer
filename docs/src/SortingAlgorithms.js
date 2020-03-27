@@ -37,12 +37,13 @@ export function getBubbleSortAnimations(array){
             animations.push([j, j+1, false, true]);
             if (array[j] > array[j+1]) 
             { 
-                animations.push([j, j+1, true, true]);
-                animations.push([j, j+1, true, true]);
+                animations.push([j, array[j+1], true, true]);
+                animations.push([j+1, array[j], true, true]);
                 swap(array, j, j + 1);
             } 
         }
     }
+    console.log(array);
     return animations;      
 }
 
