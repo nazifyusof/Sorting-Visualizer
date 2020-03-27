@@ -10,7 +10,11 @@ import {getBubbleSortAnimations} from '../SortingAlgorithms.js';
 const ANIMATION_SPEED_MS = 1;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = Math.floor((window.screen.width - 360) / 6);
+
+const screenWidth = window.screen.width;
+const sideBarWidth = window.screen.width/ 4;
+const barWidth = 6;
+const NUMBER_OF_ARRAY_BARS = Math.floor((screenWidth - sideBarWidth) / barWidth);
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'teal';
