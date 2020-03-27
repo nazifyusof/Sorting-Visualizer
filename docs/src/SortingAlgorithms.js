@@ -29,6 +29,7 @@
 // };
 
 export function getBubbleSortAnimations(array){
+    let animations = [];
     let n = array.length; 
     for (let i = 0; i < n-1; i++){ 
         for (let j = 0; j < n-i-1; j++){
@@ -42,7 +43,7 @@ export function getBubbleSortAnimations(array){
             } 
         }
     }
-    return array;      
+    return animations;      
 }
 
 export function getHeapSortAnimations(array){
